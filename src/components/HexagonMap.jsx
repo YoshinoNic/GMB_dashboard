@@ -81,7 +81,12 @@ const HexagonMap = ({
 
   useEffect(() => {
     fetch(mapStyle)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        return response.json();
+      })
       .then((style) => {
         style.layers.forEach((layer) => {
           if (layer.type === "fill") {
