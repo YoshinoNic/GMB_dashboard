@@ -84,7 +84,6 @@ const BarChart = ({ data }) => {
         colors.greenAccent[500],
         colors.greenAccent[600],
       ]}
-      borderRadius={2}
       borderColor={{
         from: "color",
         modifiers: [["darker", "1.6"]],
